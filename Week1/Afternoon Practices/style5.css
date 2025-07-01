@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #fff;
+}
+
+.navbar {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.navbar li {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+}
+
+
+.navbar .home {
+    background-color: #00cfe8;
+}
+
+.navbar .about {
+    background-color: #f44336;
+}
+
+.navbar .feature {
+    background-color: #4caf50;
+}
+
+.navbar .service {
+    background-color: #ffeb3b;
+    color: #000;
+}
+
+.navbar .gallery {
+    background-color: #ff7f50;
+}
+
+.navbar .blog {
+    background-color: #ff4ff0;
+}
+
+.navbar li:hover {
+    opacity: 0.85;
+}

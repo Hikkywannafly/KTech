@@ -1,0 +1,136 @@
+:root {
+    --font-main: 'Lato', sans-serif;
+    --card-bg: #ffffff;
+    --card-radius: 8px;
+    --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    --text-color: #444;
+    --gray: #777;
+
+    --red: #e74c3c;
+    --green: #2ecc71;
+    --blue: #3498db;
+    --cyan: #1abc9c;
+    --orange: #f39c12;
+    --yellow: #f1c40f;
+    --purple: #9b59b6;
+    --pink: #ff4ff0;
+}
+
+body {
+    margin: 0;
+    padding: 40px;
+    background-color: #f4f6fa;
+    font-family: var(--font-main);
+}
+
+.card-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.profile-card {
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    width: 250px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.contactt {
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+    padding: 16px;
+    
+}
+
+.profile-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.profile-card h2 {
+    margin: 12px 0 4px;
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+.profile-card h4 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.profile-card ul {
+    list-style: none;
+    padding: 0 20px;
+    margin: 0;
+    text-align: left;
+}
+
+.profile-card ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+}
+
+.contact {
+    padding: 10px 16px;
+    color: #fff;
+    text-align: left;
+}
+
+.contact h5 {
+    margin: 0 0 4px;
+    font-size: 12px;
+    opacity: 0.9;
+    font-weight: normal;
+}
+
+.contact p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.contact .icon {
+    margin-right: 6px;
+}
+
+.red {
+    background-color: var(--red);
+}
+
+.green {
+    background-color: var(--green);
+}
+
+.cyan {
+    background-color: var(--cyan);
+}
+
+.blue {
+    background-color: var(--blue);
+}
+
+.orange {
+    background-color: var(--orange);
+}
+
+.yellow {
+    background-color: var(--yellow);
+    color: #000;
+}
+
+.purple {
+    background-color: var(--purple);
+}
+
+.pink {
+    background-color: var(--pink);
+}

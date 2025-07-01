@@ -1,0 +1,115 @@
+:root {
+    --font-family: 'Lato', sans-serif;
+    --font-color: #555;
+    --title-color: #999;
+    --number-color: #00c3ff;
+
+    --bg-color: #f4f8fc;
+    --box-bg: #ffffff;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --box-radius: 6px;
+
+    --bar-width: 20px;
+    --bar-spacing: 12px;
+    --bar-height-base: 60px;
+
+    --red: #ff4d4d;
+    --green: #3adb76;
+    --yellow: #ffcc00;
+    --blue: #00bcd4;
+    --orange: #ff7f50;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px;
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--font-color);
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    background-color: var(--box-bg);
+    border-radius: var(--box-radius);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    text-align: center;
+    min-width: 250px;
+}
+
+.stat-box h4 {
+    margin: 0;
+    font-size: 14px;
+    color: var(--title-color);
+    letter-spacing: 0.5px;
+}
+
+.stat-box h2 {
+    margin: 10px 0;
+    font-size: 28px;
+    color: var(--number-color);
+    font-weight: bold;
+}
+
+.bar-graph {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: var(--bar-height-base);
+    margin-top: 10px;
+    gap: var(--bar-spacing);
+}
+
+.bar {
+    width: var(--bar-width);
+    border-radius: 4px 4px 0 0;
+    background-color: #ccc;
+    transition: height 0.5s ease;
+}
+
+.bar.red {
+    height: 30%;
+    background-color: var(--red);
+}
+
+.bar.green {
+    height: 45%;
+    background-color: var(--green);
+}
+
+.bar.yellow {
+    height: 60%;
+    background-color: var(--yellow);
+}
+
+.bar.blue {
+    height: 75%;
+    background-color: var(--blue);
+}
+
+.bar.orange {
+    height: 50%;
+    background-color: var(--orange);
+}
+
+.bar-labels {
+    display: flex;
+    justify-content: center;
+    gap: var(--bar-spacing);
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--title-color);
+}

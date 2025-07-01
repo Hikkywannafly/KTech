@@ -1,0 +1,268 @@
+:root {
+    --container-width: 80%;
+    --font-family: 'Lato', sans-serif;
+    --font-size: 13px;
+    --font-weight-bold: 700;
+    --color-white: #ffffff;
+    --color-background: #ecf0f1;
+    --spacing: 16px;
+    --block-height: 54px;
+    --label-width: 160px;
+    --spacing-bottom: 16px;
+
+    /* BANDWIDTH */
+    --bandwidth-primary: #ec1800;
+    --bandwidth-secondary: #e74c3c;
+    --bandwidth-text: "BANDWIDTH";
+    --bandwidth-percentage: 20%;
+    --bandwidth-percentage-text: "20%";
+
+    /* STORAGE */
+    --storage-primary: #00e1ff;
+    --storage-secondary: #26c6da;
+    --storage-text: "STORAGE";
+    --storage-percentage: 50%;
+    --storage-percentage-text: "50%";
+
+    /* USERS */
+    --users-primary: #00ff0d;
+    --users-secondary: #66bb6a;
+    --users-text: "USERS";
+    --users-percentage: 70%;
+    --users-percentage-text: "70%";
+
+    /* VISITORS */
+    --visitors-primary: #ffcc00;
+    --visitors-secondary: #f1c40f;
+    --visitors-text: "VISITORS";
+    --visitors-percentage: 30%;
+    --visitors-percentage-text: "30%";
+
+    /* EMAILS */
+    --emails-primary: #d900ff;
+    --emails-secondary: #ba68c8;
+    --emails-text: "EMAILS";
+    --emails-percentage: 45%;
+    --emails-percentage-text: "45%";
+
+    /* BASIC */
+    --basic-primary: #ff00ea;
+    --basic-secondary: #ff4ff0;
+    --basic-text: "BASIC";
+    --basic-percentage: 80%;
+    --basic-percentage-text: "80%";
+
+    /* OTHERS */
+    --others-primary: #0099ff;
+    --others-secondary: #3f7da7;
+    --others-text: "OTHERS";
+    --others-percentage: 37%;
+    --others-percentage-text: "37%";
+}
+
+.container {
+    width: var(--container-width);
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    margin-bottom: var(--spacing-bottom);
+    height: var(--block-height);
+}
+
+.left-column {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: var(--label-width);
+    height: 100%;
+}
+
+.left-column>span {
+    margin-right: var(--spacing);
+    color: var(--color-white);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+}
+
+.right-column {
+    flex: 1;
+    background-color: var(--color-background);
+}
+
+.right-column-percent {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 0;
+    animation: loadProgress 1.5s ease-out forwards;
+}
+
+.right-column-percent>span {
+    margin-left: var(--spacing);
+    color: var(--color-white);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Animation */
+@keyframes loadProgress {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: var(--target-width);
+    }
+}
+
+/* BANDWIDTH */
+.bandwidth-color-primary {
+    background-color: var(--bandwidth-primary);
+}
+
+.bandwidth-color-secondary {
+    background-color: var(--bandwidth-secondary);
+}
+
+.bandwidth-text::before {
+    content: var(--bandwidth-text);
+}
+
+.bandwidth-percent-text::before {
+    content: var(--bandwidth-percentage-text);
+}
+
+.bandwidth-percent {
+    --target-width: var(--bandwidth-percentage);
+}
+
+/* STORAGE */
+.storage-color-primary {
+    background-color: var(--storage-primary);
+}
+
+.storage-color-secondary {
+    background-color: var(--storage-secondary);
+}
+
+.storage-text::before {
+    content: var(--storage-text);
+}
+
+.storage-percent-text::before {
+    content: var(--storage-percentage-text);
+}
+
+.storage-percent {
+    --target-width: var(--storage-percentage);
+}
+
+/* USERS */
+.users-color-primary {
+    background-color: var(--users-primary);
+}
+
+.users-color-secondary {
+    background-color: var(--users-secondary);
+}
+
+.users-text::before {
+    content: var(--users-text);
+}
+
+.users-percent-text::before {
+    content: var(--users-percentage-text);
+}
+
+.users-percent {
+    --target-width: var(--users-percentage);
+}
+
+/* VISITORS */
+.visitors-color-primary {
+    background-color: var(--visitors-primary);
+}
+
+.visitors-color-secondary {
+    background-color: var(--visitors-secondary);
+}
+
+.visitors-text::before {
+    content: var(--visitors-text);
+}
+
+.visitors-percent-text::before {
+    content: var(--visitors-percentage-text);
+}
+
+.visitors-percent {
+    --target-width: var(--visitors-percentage);
+}
+
+/* EMAILS */
+.emails-color-primary {
+    background-color: var(--emails-primary);
+}
+
+.emails-color-secondary {
+    background-color: var(--emails-secondary);
+}
+
+.emails-text::before {
+    content: var(--emails-text);
+}
+
+.emails-percent-text::before {
+    content: var(--emails-percentage-text);
+}
+
+.emails-percent {
+    --target-width: var(--emails-percentage);
+}
+
+/* BASIC */
+.basic-color-primary {
+    background-color: var(--basic-primary);
+}
+
+.basic-color-secondary {
+    background-color: var(--basic-secondary);
+}
+
+.basic-text::before {
+    content: var(--basic-text);
+}
+
+.basic-percent-text::before {
+    content: var(--basic-percentage-text);
+}
+
+.basic-percent {
+    --target-width: var(--basic-percentage);
+}
+
+/* OTHERS */
+.others-color-primary {
+    background-color: var(--others-primary);
+}
+
+.others-color-secondary {
+    background-color: var(--others-secondary);
+}
+
+.others-text::before {
+    content: var(--others-text);
+}
+
+.others-percent-text::before {
+    content: var(--others-percentage-text);
+}
+
+.others-percent {
+    --target-width: var(--others-percentage);
+}
