@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<style>
+    .highlight {
+        background-color: yellow;
+    }
+</style>
+
+<body>
+    <div class="container mx-auto p-4 fex flex-col items-center gap-6">
+
+        <!-- task 1 -->
+        <div class="task-1">
+            <p class="text-2xl font-bold mb-4">1. Change Text Content of a Div</p>
+            <button id="changeTextBtn" class="bg-blue-500 text-white p-2 rounded-md">Change Text</button>
+            <div id="textDisplay" class="text-2xl font-bold">Hello, World!</div>
+        </div>
+
+        <!-- task 2 -->
+        <div class="task-2">
+            <p class="text-2xl font-bold mb-4">2. Toggle Highlight Class</p>
+            <button id="toggleHighlightBtn" class="bg-blue-500 text-white p-2 rounded-md">Toggle Highlight</button>
+            <div class="box">
+                <p>This is a box</p>
+            </div>
+        </div>
+        <!-- task 3  -->
+
+        <div class="task-3">
+            <p class="text-2xl font-bold mb-4">3. Add New List Item</p>
+
+            <input type="text" id="itemInput" class="border p-2 rounded-md" placeholder="Type an item" />
+            <button id="addItemBtn" class="bg-blue-500 text-white p-2 rounded-md">Add Item</button>
+            <ul id="itemList" class="mt-4 lis pl-5">
+            </ul>
+        </div>
+        <!-- task 4 -->
+        <div class="task-4">
+            <p class="text-2xl font-bold mb-4">4. Remove an Element</p>
+            <ul id="removeList" class="mt-4 pl-5 flex flex-col gap-6 ">
+                <li>Item 1 <button class="removeBtn bg-red-500 text-white p-1 rounded-md">Remove</button></li>
+                <li>Item 2 <button class="removeBtn bg-red-500 text-white p-1 rounded-md">Remove</button></li>
+                <li>Item 3 <button class="removeBtn bg-red-500 text-white p-1 rounded-md">Remove</button></li>
+                <li>Item 4 <button class="removeBtn bg-red-500 text-white p-1 rounded-md">Remove</button></li>
+            </ul>
+        </div>
+        <!-- task 5 -->
+        <div class="task-5">
+            <p class="text-2xl font-bold mb-4">5. Update Image Source Dynamically</p>
+            <button id="changeImageBtn5" class="bg-blue-500 text-white p-2 rounded-md">Add Item</button>
+            <img id="mainImage" src="https://anibase.net/files/0b8de43b06bd6ce8b31c711c0f2be3ea" alt="Placeholder Image"
+                class="mt-4" />
+        </div>
+
+        <!-- task 6 -->
+        <div class="task-6">
+            <p class="text-2xl font-bold mb-4">6. Update Image Source Dynamically</p>
+            <input type="text" id="usernameInput" class="border p-2 rounded-md" placeholder="Enter your username" />
+            <button id="submitUsername" class="bg-blue-500 text-white p-2 rounded-md">Submit Username</button>
+
+        </div>
+
+        <!-- task 7 -->
+        <div class="task-7">
+            <p class="text-2xl font-bold mb-4">7. Event Listener on Multiple Elements</p>
+            <button class="colorBtn bg-red-500 text-white p-2 rounded-md">Red</button>
+            <button class="colorBtn bg-green-500 text-white p-2 rounded-md">Green</button>
+            <button class="colorBtn bg-blue-500 text-white p-2 rounded-md">Blue</button>
+        </div>
+        <!-- task 8 -->
+
+        <div class="task-8">
+            <p class="text-2xl font-bold mb-4">8. Change Background on Hover</p>
+            <div class="hoverBox p-4 border rounded-md" style="width: 200px; height: 100px;">
+                Hover !
+            </div>
+        </div>
+
+
+        <!-- task 9 9 -->
+        <div class="task-9">
+            <p class="text-2xl font-bold mb-4">9. Live Clock</p>
+            <p id="clockDisplay" class="text-xl font-mono"></p>
+        </div>
+        <!-- task 10 -->
+
+        <div class="task-10">
+            <p class="text-2xl font-bold mb-4">10. Validate Form Field</p>
+            <input type="text" id="emailInput" class=" border p2 rounded-md" placeholder="Enter your email" />
+            <button id="validateBtn" class="bg-blue-500 text-white p-2 rounded-md">Validate Email</button>
+        </div>
+        <!--task 11 -->
+        <div class="task-11">
+            <p class="text-2xl font-bold mb-4">11. Hide Element</p>
+            <button id="hideParaBtn" class="bg-blue-500 text-white p-2 rounded-md">Hide Paragraph</button>
+            <p id="infoPara" class="mt-4">This is a paragraph that can be hidden.</p>
+        </div>
+
+        <!-- task 12 -->
+        <div class="task-12">
+            <p class="text-2xl font-bold mb-4">12. Greeting Based on Time</p>
+            <p id="greetingText" class="text-xl font-mono"></p>
+        </div>
+
+        <!-- task 13 -->
+        <div class="task-13">
+            <p class="text-2xl font-bold mb-4">13. Field Border Highlight on Error</p>
+            <input type="text" id="nameInput" class="border p-2 rounded-md" placeholder="Enter your name" />
+            <button id="formSubmit" class="bg-blue-500 text-white p-2 rounded-md">Submit</button>
+            <p id="nameError" class="text-red-500 text-xs mt-1 hidden">Please enter a name.</p>
+        </div>
+        <script>
+
+        </script>
+
+        <!-- task 14 -->
+        <div class="task-14">
+            <p class="text-2xl font-bold mb-4">14. Disable Button After Click</p>
+            <button id="onceBtn" class="bg-blue-500 text-white p-2 rounded-md">Click Me Once</button>
+        </div>
+
+        <!-- task 15 -->
+        <div class="task-15">
+            <p class="text-2xl font-bold mb-4">15. Textarea Character Counter</p>
+            <textarea id="bioInput" rows="4" class="border p-2 rounded-md w-full"
+                placeholder="Write your bio (max 200 characters)"></textarea>
+            <p id="charCount" class="text-gray-500 mt-1">200 characters remaining</p>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    // task 1
+    const changeTextBtn = document.getElementById('changeTextBtn');
+    const textDisplay = document.getElementById('textDisplay');
+
+    changeTextBtn.addEventListener('click', () => {
+        textDisplay.textContent = 'Hello, JavaScript!';
+    });
+    // task2 
+
+    const toggleHighLightBtn = document.getElementById('toggleHighlightBtn');
+    const box = document.querySelector('.box');
+    toggleHighLightBtn.addEventListener('click', () => {
+        box.classList.toggle('highlight');
+    });
+
+    // taks3
+    const addItemBtn = document.getElementById('addItemBtn');
+    const itemInput = document.getElementById('itemInput');
+    const itemList = document.getElementById('itemList');
+    addItemBtn.addEventListener('click', () => {
+        const newItemText = itemInput.value.trim();
+        if (newItemText) {
+            const newItem = document.createElement('li');
+            newItem.textContent = newItemText;
+            itemList.appendChild(newItem);
+            itemInput.value = '';
+        } else {
+            alert('Please enter an item.');
+        }
+
+    })
+
+
+    // taks4
+    const removeBtns = document.querySelectorAll('.removeBtn');
+    removeBtns.forEach(btn => {
+        btn.addEventListener('click', (event) => {
+            const listItem = event.target.parentElement;
+            listItem.remove();
+        })
+    })
+
+    // task5
+    const changeImageBtn5 = document.getElementById('changeImageBtn5');
+    const mainImage = document.getElementById('mainImage');
+    changeImageBtn5.addEventListener('click', () => {
+        mainImage.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvVFPTWAT5PHAH5qooFrIlrM8qKU_gjytjYQ&s';
+
+    });
+
+    // task 6
+    const usernameInput = document.getElementById('usernameInput');
+    const submitUsername = document.getElementById('submitUsername');
+    submitUsername.addEventListener('click', () => {
+        const username = usernameInput.value.trim();
+        if (username) {
+            alert(`Entered Username: ${username}`);
+            usernameInput.value = '';
+        } else {
+            alert('Please enter a username.');
+        }
+    });
+
+    // task 7
+    const colorBtns = document.querySelectorAll('.colorBtn');
+    colorBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert(`Button Text: ${btn.textContent}`);
+        });
+    })
+
+    // task 8
+    const hoverBox = document.querySelector('.hoverBox');
+    hoverBox.addEventListener('mouseover', () => {
+        hoverBox.style.backgroundColor = 'lightblue';
+    });
+    hoverBox.addEventListener('mouseout', () => {
+        hoverBox.style.backgroundColor = '';
+    });
+
+    // task 9
+    const clockDisplay = document.getElementById('clockDisplay');
+    function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        clockDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateClock, 1000);
+
+    // task 10
+    const emailInput = document.getElementById('emailInput');
+    const validateBtn = document.getElementById('validateBtn');
+    validateBtn.addEventListener('click', () => {
+        const email = emailInput.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailPattern.test(email)) {
+            alert('Valid Email');
+        } else {
+            alert('Invalid Email');
+        }
+    });
+    // task 11
+    const hideParaBtn = document.getElementById('hideParaBtn');
+    const infoPara = document.getElementById('infoPara');
+    hideParaBtn.addEventListener('click', () => {
+        infoPara.style.display = 'none';
+    });
+    // task 12
+    const greetingText = document.getElementById('greetingText');
+    function updateGreeting() {
+        const now = new Date();
+        const hours = now.getHours();
+        let greeting;
+        if (hours < 12) {
+            greeting = 'Good Morning';
+        } else if (hours < 18) {
+            greeting = 'Good Afternoon';
+        } else {
+            greeting = 'Good Evening';
+        }
+        greetingText.textContent = greeting;
+    }
+    updateGreeting();
+    // task 13
+    const nameInput = document.getElementById('nameInput');
+    const formSubmit = document.getElementById('formSubmit');
+    const nameError = document.getElementById('nameError');
+
+    formSubmit.addEventListener('click', () => {
+        if (nameInput.value.trim() === '') {
+            nameInput.classList.add('border-red-500');
+            nameError.classList.remove('hidden');
+        } else {
+            nameInput.classList.remove('border-red-500');
+            nameError.classList.add('hidden');
+        }
+    });
+    // task 14
+    const onceBtn = document.getElementById('onceBtn');
+    onceBtn.addEventListener('click', () => {
+        onceBtn.disabled = true;
+        onceBtn.textContent = 'Clicked';
+    });
+    // task 15
+    const bioInput = document.getElementById('bioInput');
+    const charCount = document.getElementById('charCount');
+    bioInput.addEventListener('input', () => {
+        const remainingChars = 200 - bioInput.value.length;
+        charCount.textContent = `${remainingChars} characters remaining`;
+        if (remainingChars < 0) {
+            charCount.style.color = 'red';
+        } else {
+            charCount.style.color = 'gray';
+        }
+    });
+
+
+
+
+
+
+</script>
