@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Máy Tính Cơ Bản</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
+        <h2 class="text-2xl font-bold text-center mb-4">Máy Tính</h2>
+        <div id="display"
+            class="bg-gray-200 text-right px-4 py-3 text-xl rounded mb-4 min-h-[48px] font-mono overflow-x-auto">
+            0
+        </div>
+        <div class="grid grid-cols-4 gap-3">
+
+            <button onclick="clearDisplay()"
+                class="col-span-2 bg-red-500 text-white py-2 rounded hover:bg-red-600">C</button>
+            <button onclick="appendOperator('/')"
+                class="bg-blue-500 text-white py-2 rounded hover:bg-blue-600">/</button>
+            <button onclick="appendOperator('*')"
+                class="bg-blue-500 text-white py-2 rounded hover:bg-blue-600">*</button>
+
+            <button onclick="appendNumber('7')" class="bg-gray-200 py-2 rounded">7</button>
+            <button onclick="appendNumber('8')" class="bg-gray-200 py-2 rounded">8</button>
+            <button onclick="appendNumber('9')" class="bg-gray-200 py-2 rounded">9</button>
+            <button onclick="appendOperator('-')"
+                class="bg-blue-500 text-white py-2 rounded hover:bg-blue-600">-</button>
+
+
+            <button onclick="appendNumber('4')" class="bg-gray-200 py-2 rounded">4</button>
+            <button onclick="appendNumber('5')" class="bg-gray-200 py-2 rounded">5</button>
+            <button onclick="appendNumber('6')" class="bg-gray-200 py-2 rounded">6</button>
+            <button onclick="appendOperator('+')"
+                class="bg-blue-500 text-white py-2 rounded hover:bg-blue-600">+</button>
+
+
+            <button onclick="appendNumber('1')" class="bg-gray-200 py-2 rounded">1</button>
+            <button onclick="appendNumber('2')" class="bg-gray-200 py-2 rounded">2</button>
+            <button onclick="appendNumber('3')" class="bg-gray-200 py-2 rounded">3</button>
+            <button onclick="calculate()"
+                class="row-span-2 bg-green-500 text-white py-2 rounded hover:bg-green-600">=</button>
+
+            <button onclick="appendNumber('0')" class="col-span-2 bg-gray-200 py-2 rounded">0</button>
+            <button onclick="appendDot()" class="bg-gray-200 py-2 rounded">.</button>
+        </div>
+    </div>
+
+    <script>
+        let display = document.getElementById('display');
+
+        function appendNumber(num) {
+            if (display.innerText === '0') {
+                display.innerText = num;
+            } else {
+                display.innerText += num;
+            }
+        }
+
+        function appendOperator(op) {
+            const lastChar = display.innerText.slice(-1);
+            if ('+-*/'.includes(lastChar)) {
+                display.innerText = display.innerText.slice(0, -1) + op;
+            } else {
+                display.innerText += op;
+            }
+        }
+
+        function appendDot() {
+            const parts = display.innerText.split(/[\+\-\*\/]/);
+            const lastPart = parts[parts.length - 1];
+            if (!lastPart.includes('.')) {
+                display.innerText += '.';
+            }
+        }
+
+        function clearDisplay() {
+            display.innerText = '0';
+        }
+
+        function calculate() {
+            try {
+                let result = eval(display.innerText);
+                display.innerText = result;
+            } catch (e) {
+                display.innerText = 'Error';
+            }
+        }
+    </script>
+</body>
+
+</html>
