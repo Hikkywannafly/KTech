@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+<body class="bg-gray-100 min-h-screen flex flex-col items-center py-10 transition-colors duration-300">
+    <div class="flex flex-col w-full items-center" id="main-container">
+
+        <div id="dashboard-container" class="bg-white p-6 rounded shadow-md w-[800px] transition-colors duration-300">
+            <div class="top-wrapper flex justify-between mb-5">
+                <h1 class="text-3xl font-bold my-4">Dashboard</h1>
+                <p id="clockDisplay" class="text-xl font-mono text-gray-500 my-6"></p>
+                <p id="greetingText" class="text-xl font-mono text-gray-500 my-6"></p>
+                <button id="theme-toggle"
+                    class="text-2xl bg-gray-200 dark:bg-gray-200 rounded-full px-3 py-2 my-2 h-[55px] shadow hover:bg-gray-300 dark:hover:bg-gray-400 transition-colors"
+                    title="Toggle theme">🌙</button>
+            </div>
+            <script>
+                function updateClock() {
+                    const now = new Date();
+                    const hours = String(now.getHours()).padStart(2, '0');
+                    const minutes = String(now.getMinutes()).padStart(2, '0');
+                    const seconds = String(now.getSeconds()).padStart(2, '0');
+                    const timeString = `${hours}:${minutes}:${seconds}`;
+                    document.getElementById('clockDisplay').textContent = timeString;
+                }
+
+                setInterval(updateClock, 1000);
+                updateClock();
+
+                function getGreeting() {
+                    const hour = new Date().getHours();
+                    if (hour >= 5 && hour < 12) {
+                        return 'Good Morning';
+                    } else if (hour >= 12 && hour < 18) {
+                        return 'Good Afternoon';
+                    } else if (hour >= 18 && hour < 22) {
+                        return 'Good Evening';
+                    } else {
+                        return 'Good Night';
+                    }
+                }
+                document.getElementById('greetingText').textContent = getGreeting();
+            </script>
+
+            <!-- To-Do List Section -->
+            <h1 class="text-2xl font-bold mb-4">To-Do List</h1>
+            <div class="flex mb-1">
+                <input id="task-input" type="text" class="flex-1 border rounded-l px-3 py-2 focus:outline-none"
+                    placeholder="Enter a task">
+                <button id="add-btn" class="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600">Add
+                    Task</button>
+            </div>
+            <div id="task-error" class="text-red-500 text-sm min-h-[1.5em] mb-3"></div>
+            <div class="flex gap-2 mb-4">
+                <span class="py-1 rounded">Filters: </span>
+                <button class="filter-btn bg-cyan-400 px-3 py-1 rounded hover:bg-gray-300"
+                    data-filter="all">All</button>
+                <button class="filter-btn bg-cyan-400 px-3 py-1 rounded hover:bg-gray-300"
+                    data-filter="completed">Completed</button>
+                <button class="filter-btn bg-cyan-400 px-3 py-1 rounded hover:bg-gray-300"
+                    data-filter="incomplete">Incomplete</button>
+            </div>
+            <ul id="task-list" class="space-y-2"></ul>
+
+            <!-- Sticky Notes Section -->
+            <h2 class="text-2xl font-bold mt-5 mb-4">Sticky Notes</h2>
+            <div class="flex mb-1">
+                <input id="note-input" type="text" class="flex-1 border rounded-l px-3 py-2 focus:outline-none" placeholder="Write a note...">
+                <button id="add-note-btn" class="bg-yellow-500 text-white px-4 py-2 rounded-r hover:bg-yellow-600">Add Note</button>
+            </div>
+            <div id="note-error" class="text-red-500 text-sm min-h-[1.5em] mb-3"></div>
+            <div id="notes-container" class="flex flex-wrap gap-4"></div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const dashboardContainer = document.getElementById('dashboard-container');
+        let darkMode = false;
+
+        function setTheme(dark) {
+            darkMode = dark;
+            const taskInputEl = document.getElementById('task-input');
+            const noteInputEl = document.getElementById('note-input');
+            // Change color for all elements with id changeListColor and changeNoteColor
+            const changeListColorEls = document.querySelectorAll('#changeListColor');
+            const changeNoteColorEls = document.querySelectorAll('#changeNoteColor');
+            if (dark) {
+                dashboardContainer.classList.add('bg-gray-800', 'text-white');
+                dashboardContainer.classList.remove('bg-white', 'text-black');
+                themeToggle.textContent = '☀️';
+                if (taskInputEl) {
+                    taskInputEl.classList.remove('text-white', 'text-cyan-300');
+                    taskInputEl.classList.add('text-stone-950');
+                }
+                if (noteInputEl) {
+                    noteInputEl.classList.remove('text-white', 'text-cyan-300');
+                    noteInputEl.classList.add('text-stone-950');
+                }
+                changeListColorEls.forEach(el => {
+                    el.classList.remove('text-white', 'text-cyan-300');
+                    el.classList.add('text-stone-950');
+                });
+                changeNoteColorEls.forEach(el => {
+                    el.classList.remove('text-white', 'text-cyan-300');
+                    el.classList.add('text-stone-950');
+                });
+            } else {
+                dashboardContainer.classList.remove('bg-gray-800', 'text-white');
+                dashboardContainer.classList.add('bg-white', 'text-black');
+                themeToggle.textContent = '🌙';
+                if (taskInputEl) taskInputEl.classList.remove('text-stone-950');
+                if (noteInputEl) noteInputEl.classList.remove('text-stone-950');
+                changeListColorEls.forEach(el => el.classList.remove('text-stone-950'));
+                changeNoteColorEls.forEach(el => el.classList.remove('text-stone-950'));
+            }
+        }
+
+        themeToggle.addEventListener('click', () => {
+            setTheme(!darkMode);
+            localStorage.setItem('theme', !darkMode ? 'dark' : 'light');
+        });
+
+        // Initial theme: always default to dark unless user toggles
+        let themePref = localStorage.getItem('theme');
+        if (themePref === null) {
+            setTheme(true);
+            localStorage.setItem('theme', 'dark');
+        } else {
+            setTheme(themePref === 'dark');
+        }
+
+        // To-Do List Logic
+        const taskInput = document.getElementById('task-input');
+        const addBtn = document.getElementById('add-btn');
+        const taskList = document.getElementById('task-list');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const taskError = document.getElementById('task-error');
+        let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+        let filter = 'all';
+
+        function saveTasks() {
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        function renderTasks() {
+            taskList.innerHTML = '';
+            let filtered = tasks;
+            if (filter === 'completed') {
+                filtered = tasks.filter(t => t.completed);
+            } else if (filter === 'incomplete') {
+                filtered = tasks.filter(t => !t.completed);
+            }
+            filtered.forEach((task, idx) => {
+                const li = document.createElement('li');
+                li.className = 'flex items-center justify-between bg-gray-50 px-3 py-2 rounded shadow-sm';
+                li.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" class="mr-2" ${task.completed ? 'checked' : ''} data-idx="${idx}">
+                        <span id="changeListColor" class="${task.completed ? 'line-through text-gray-400' : ''}">${task.text}</span>
+                    </div>
+                    <button class="delete-btn text-red-500 hover:text-red-700" data-idx="${idx}">Delete</button>
+                `;
+                taskList.appendChild(li);
+            });
+            // Update color for new elements after rendering
+            setTheme(darkMode);
+            saveTasks();
+        }
+
+        addBtn.addEventListener('click', () => {
+            const text = taskInput.value.trim();
+            if (!text) {
+                taskError.textContent = 'Task cannot be empty.';
+                return;
+            }
+            tasks.push({ text, completed: false });
+            taskInput.value = '';
+            taskError.textContent = '';
+            renderTasks();
+        });
+
+        taskInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                addBtn.click();
+            }
+            if (taskError.textContent) taskError.textContent = '';
+        });
+
+        taskList.addEventListener('change', (e) => {
+            if (e.target.type === 'checkbox') {
+                const idx = e.target.getAttribute('data-idx');
+                tasks[idx].completed = e.target.checked;
+                renderTasks();
+            }
+        });
+
+        taskList.addEventListener('click', (e) => {
+            if (e.target.classList.contains('delete-btn')) {
+                const idx = e.target.getAttribute('data-idx');
+                tasks.splice(idx, 1);
+                renderTasks();
+            }
+        });
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filter = btn.getAttribute('data-filter');
+                filterBtns.forEach(b => b.classList.remove('bg-blue-500', 'text-white'));
+                btn.classList.add('bg-blue-500', 'text-white');
+                renderTasks();
+            });
+        });
+
+        // Set default filter button style
+        filterBtns[0].classList.add('bg-blue-500', 'text-white');
+        renderTasks();
+
+        // Sticky Notes Logic
+        const noteInput = document.getElementById('note-input');
+        const addNoteBtn = document.getElementById('add-note-btn');
+        const notesContainer = document.getElementById('notes-container');
+        const noteError = document.getElementById('note-error');
+        let notes = JSON.parse(localStorage.getItem('notes') || '[]');
+        const noteColors = [
+            'bg-yellow-200',
+            'bg-pink-200',
+            'bg-green-200',
+            'bg-blue-200',
+            'bg-purple-200',
+            'bg-orange-200',
+            'bg-red-200',
+            'bg-teal-200'
+        ];
+
+        function getRandomColor() {
+            return noteColors[Math.floor(Math.random() * noteColors.length)];
+        }
+
+        function saveNotes() {
+            localStorage.setItem('notes', JSON.stringify(notes));
+        }
+
+        function renderNotes() {
+            notesContainer.innerHTML = '';
+            notes.forEach((note, idx) => {
+                const div = document.createElement('div');
+                div.className = `relative p-4 min-w-[120px] max-w-[180px] break-words rounded shadow ${note.color}`;
+                div.innerHTML = `
+                    <button class="absolute top-1 right-2 text-lg text-gray-500 hover:text-red-600 delete-note-btn" data-idx="${idx}">&times;</button>
+                    <div id="changeNoteColor" class="whitespace-pre-line">${note.text}</div>
+                `;
+                notesContainer.appendChild(div);
+            });
+            // Update color for new elements after rendering
+            setTheme(darkMode);
+            saveNotes();
+        }
+
+        addNoteBtn.addEventListener('click', () => {
+            const text = noteInput.value.trim();
+            if (!text) {
+                noteError.textContent = 'Note cannot be empty.';
+                return;
+            }
+            notes.push({ text, color: getRandomColor() });
+            noteInput.value = '';
+            noteError.textContent = '';
+            renderNotes();
+        });
+
+        noteInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                addNoteBtn.click();
+            }
+            if (noteError.textContent) noteError.textContent = '';
+        });
+
+        notesContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('delete-note-btn')) {
+                const idx = e.target.getAttribute('data-idx');
+                notes.splice(idx, 1);
+                renderNotes();
+            }
+        });
+
+        renderNotes();
+    </script>
+</body>
+
+</html>
