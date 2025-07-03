@@ -23,7 +23,7 @@ export default function Header() {
                 </Link>
                 <Link to="/Widget3">
                     <h1 className="text-sm  font-bold hover:text-primary transition-all duration-300">
-                        Widget 3
+                       Homework
                     </h1>
                 </Link>
                 <Link to="/Widget4">
