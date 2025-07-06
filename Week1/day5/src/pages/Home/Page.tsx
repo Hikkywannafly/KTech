@@ -177,6 +177,37 @@ const Home: FC = () => {
                 Selected fruit: {fruit ? fruit : "None"}
               </p>
             </div>
+         
+            <div className="flex flex-col gap-4">
+              <h1 className="">
+                Exercise 9: Checkbox Toggle
+              </h1>
+              <div className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="toggle-checkbox"
+                  checked={isChecked}
+                  onChange={handleToggle}
+                />
+                <label htmlFor="toggle-checkbox" className="text-black">
+                  Toggle me
+                </label>
+              </div>
+              <p className="text-black">Checkbox is: {isChecked ? "checked" : "unchecked"}</p>
+            </div>
+            <div className="flex flex-col gap-4">
+              <h1 className="">
+                Exercise 10: Search Filter
+              </h1>
+              <Input
+                placeholder="Search items..."
+                onChange={(e) => {
+                  const searchTerm = e.target.value.toLowerCase();
+                  setFruit(fruits.filter(item => item.toLowerCase().includes(searchTerm)).join(", "));
+                }}
+              />
+              <p className="text-black">Filtered items: {fruit || "None"}</p>
+              </div>
           </div>
         </div>
       </section>

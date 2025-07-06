@@ -13,17 +13,17 @@ export default function Header() {
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-x-4">
                 <Link to="/Widget1">
                     <h1 className="text-sm   font-bold hover:text-primary transition-all duration-300">
-                        Widget 1
+                        Homework 1
                     </h1>
                 </Link>
                 <Link to="/Widget2">
                     <h1 className="text-sm  font-bold hover:text-primary transition-all duration-300">
-                        Widget 2
+                        Homework 2
                     </h1>
                 </Link>
                 <Link to="/Widget3">
                     <h1 className="text-sm  font-bold hover:text-primary transition-all duration-300">
-                        Widget 3
+                        Homework 4
                     </h1>
                 </Link>
                 <Link to="/Widget4">
