@@ -66,7 +66,7 @@ export default function Update({ productId, onUpdated, onClose }: Props) {
                 images: formData.images.split(',').map((url) => url.trim()).filter(Boolean),
             };
             const response = await fetch(url + '/' + productId, {
-                method: 'PATCH',
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
