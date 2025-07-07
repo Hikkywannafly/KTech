@@ -1,11 +1,12 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
+import styles from './RegisterForm.module.css';
 
 const countries = ['Vietnam', 'United States', 'Japan', 'France', 'Germany'];
 const hobbiesList = ['Reading', 'Traveling', 'Gaming'];
 
-const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+const isValidEmail = (email: string) => /^[^\s@]+@[^\\s@]+\.[^\s@]+$/.test(email);
 const isValidPassword = (pw: string) => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(pw);
 const isValidPhone = (phone: string) => /^\d{10,}$/.test(phone);
 const isImageFile = (file: File | null) => file && /\.(jpg|jpeg|png)$/i.test(file.name);
@@ -77,85 +78,85 @@ const Widget2: React.FC = () => {
     };
 
     return (
-        <form className="max-w-lg w-full bg-white rounded-2xl shadow-xl p-8 mx-auto mt-10 space-y-6" onSubmit={handleSubmit}>
-            <h2 className="text-2xl font-bold mb-2 text-center">User Registration</h2>
-            <div>
-                <label className="block font-medium mb-1" htmlFor="fullName">Full Name</label>
-                <Input name="fullName" id="fullName" value={form.fullName} onChange={handleChange} placeholder="Enter your full name" />
-                {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
+        <form className={styles.form} onSubmit={handleSubmit}>
+            <h2 className={styles.title}>User Registration</h2>
+            <div className={styles.row}>
+                <label className={styles.label} htmlFor="fullName">Full Name</label>
+                <Input name="fullName" id="fullName" value={form.fullName} onChange={handleChange} placeholder="Enter your full name" className={styles.input} />
+                {errors.fullName && <p className={styles.error}>{errors.fullName}</p>}
             </div>
-            <div>
-                <label className="block font-medium mb-1" htmlFor="email">Email</label>
-                <Input name="email" id="email" type="email" value={form.email} onChange={handleChange} placeholder="Enter your email" />
-                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+            <div className={styles.row}>
+                <label className={styles.label} htmlFor="email">Email</label>
+                <Input name="email" id="email" type="email" value={form.email} onChange={handleChange} placeholder="Enter your email" className={styles.input} />
+                {errors.email && <p className={styles.error}>{errors.email}</p>}
             </div>
-            <div>
-                <label className="block font-medium mb-1" htmlFor="password">Password</label>
-                <Input name="password" id="password" type="password" value={form.password} onChange={handleChange} placeholder="Enter password" />
-                {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+            <div className={styles.row}>
+                <label className={styles.label} htmlFor="password">Password</label>
+                <Input name="password" id="password" type="password" value={form.password} onChange={handleChange} placeholder="Enter password" className={styles.input} />
+                {errors.password && <p className={styles.error}>{errors.password}</p>}
             </div>
-            <div>
-                <label className="block font-medium mb-1" htmlFor="confirmPassword">Confirm Password</label>
-                <Input name="confirmPassword" id="confirmPassword" type="password" value={form.confirmPassword} onChange={handleChange} placeholder="Re-enter password" />
-                {errors.confirmPassword && <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>}
+            <div className={styles.row}>
+                <label className={styles.label} htmlFor="confirmPassword">Confirm Password</label>
+                <Input name="confirmPassword" id="confirmPassword" type="password" value={form.confirmPassword} onChange={handleChange} placeholder="Re-enter password" className={styles.input} />
+                {errors.confirmPassword && <p className={styles.error}>{errors.confirmPassword}</p>}
             </div>
-            <div>
-                <label className="block font-medium mb-1" htmlFor="phone">Phone Number</label>
-                <Input name="phone" id="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="Enter phone number" />
-                {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+            <div className={styles.row}>
+                <label className={styles.label} htmlFor="phone">Phone Number</label>
+                <Input name="phone" id="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="Enter phone number" className={styles.input} />
+                {errors.phone && <p className={styles.error}>{errors.phone}</p>}
             </div>
-            <div>
-                <label className="block font-medium mb-1">Gender</label>
-                <div className="flex gap-6">
+            <div className={styles.row}>
+                <label className={styles.label}>Gender</label>
+                <div style={{ display: 'flex', gap: '1.5rem' }}>
                     {['Male', 'Female', 'Other'].map((g) => (
-                        <label key={g} className="flex items-center gap-2">
-                            <input type="radio" name="gender" value={g} checked={form.gender === g} onChange={handleChange} className="accent-blue-500" />
+                        <label key={g} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <input type="radio" name="gender" value={g} checked={form.gender === g} onChange={handleChange} />
                             <span>{g}</span>
                         </label>
                     ))}
                 </div>
-                {errors.gender && <p className="text-red-500 text-sm mt-1">{errors.gender}</p>}
+                {errors.gender && <p className={styles.error}>{errors.gender}</p>}
             </div>
-            <div>
-                <label className="block font-medium mb-1" htmlFor="dob">Date of Birth</label>
-                <Input name="dob" id="dob" type="date" value={form.dob} onChange={handleChange} />
-                {errors.dob && <p className="text-red-500 text-sm mt-1">{errors.dob}</p>}
+            <div className={styles.row}>
+                <label className={styles.label} htmlFor="dob">Date of Birth</label>
+                <Input name="dob" id="dob" type="date" value={form.dob} onChange={handleChange} className={styles.input} />
+                {errors.dob && <p className={styles.error}>{errors.dob}</p>}
             </div>
-            <div>
-                <label className="block font-medium mb-1" htmlFor="country">Country</label>
-                <select name="country" id="country" value={form.country} onChange={handleChange} className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <div className={styles.row}>
+                <label className={styles.label} htmlFor="country">Country</label>
+                <select name="country" id="country" value={form.country} onChange={handleChange} className={styles.select}>
                     <option value="">Select a country</option>
                     {countries.map((c) => <option key={c} value={c}>{c}</option>)}
                 </select>
-                {errors.country && <p className="text-red-500 text-sm mt-1">{errors.country}</p>}
+                {errors.country && <p className={styles.error}>{errors.country}</p>}
             </div>
-            <div>
-                <label className="block font-medium mb-1">Hobbies</label>
-                <div className="flex gap-6">
+            <div className={styles.row}>
+                <label className={styles.label}>Hobbies</label>
+                <div style={{ display: 'flex', gap: '1.5rem' }}>
                     {hobbiesList.map((hobby) => (
-                        <label key={hobby} className="flex items-center gap-2">
-                            <input type="checkbox" name="hobbies" value={hobby} checked={form.hobbies.includes(hobby)} onChange={handleChange} className="accent-green-500" />
+                        <label key={hobby} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <input type="checkbox" name="hobbies" value={hobby} checked={form.hobbies.includes(hobby)} onChange={handleChange} />
                             <span>{hobby}</span>
                         </label>
                     ))}
                 </div>
-                {errors.hobbies && <p className="text-red-500 text-sm mt-1">{errors.hobbies}</p>}
+                {errors.hobbies && <p className={styles.error}>{errors.hobbies}</p>}
             </div>
-            <div>
-                <label className="block font-medium mb-1" htmlFor="profilePic">Profile Picture</label>
-                <input name="profilePic" id="profilePic" type="file" accept=".jpg,.jpeg,.png" onChange={handleChange} className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
-                {picName && <span className="text-xs text-gray-600 ml-2">{picName}</span>}
-                {errors.profilePic && <p className="text-red-500 text-sm mt-1">{errors.profilePic}</p>}
+            <div className={styles.row}>
+                <label className={styles.label} htmlFor="profilePic">Profile Picture</label>
+                <input name="profilePic" id="profilePic" type="file" accept=".jpg,.jpeg,.png" onChange={handleChange} className={styles.input} />
+                {picName && <span style={{ fontSize: '0.85rem', color: '#6b7280', marginLeft: '0.5rem' }}>{picName}</span>}
+                {errors.profilePic && <p className={styles.error}>{errors.profilePic}</p>}
             </div>
-            <div>
-                <label className="block font-medium mb-1" htmlFor="bio">Bio <span className="text-xs text-gray-400">(optional)</span></label>
-                <textarea name="bio" id="bio" maxLength={300} value={form.bio} onChange={handleChange} className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none" rows={3} />
-                <div className="flex justify-between items-center">
-                    {errors.bio && <p className="text-red-500 text-sm mt-1">{errors.bio}</p>}
-                    <span className="text-xs text-gray-400 ml-auto">{bioLeft} characters left</span>
+            <div className={styles.row}>
+                <label className={styles.label} htmlFor="bio">Bio <span style={{ fontSize: '0.85rem', color: '#6b7280' }}>(optional)</span></label>
+                <textarea name="bio" id="bio" maxLength={300} value={form.bio} onChange={handleChange} className={styles.textarea} rows={3} />
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    {errors.bio && <p className={styles.error}>{errors.bio}</p>}
+                    <span className={styles.bioCounter}>{bioLeft} characters left</span>
                 </div>
             </div>
-            <Button type="submit" className="w-full mt-4 text-lg">Register</Button>
+            <button type="submit" className={styles.button}>Register</button>
         </form>
     );
 };

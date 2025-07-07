@@ -1,0 +1,77 @@
+.form {
+    max-width: 32rem;
+    width: 100%;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    margin: 2.5rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.label {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.input,
+.select,
+.textarea {
+    border: 1.5px solid #d1d5db;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+    border-color: #2563eb;
+}
+
+.error {
+    color: #ef4444;
+    font-size: 0.95rem;
+    margin-top: 0.15rem;
+}
+
+.button {
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.7rem 0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.button:hover {
+    background: #1d4ed8;
+}
+
+.bioCounter {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-left: auto;
+}

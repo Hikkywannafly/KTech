@@ -1,5 +1,6 @@
 import React from 'react';
 import { Product } from '@/pages/Widget3/types/Product';
+import styles from './ProductCard.module.css';
 
 interface ProductCardProps {
     product: Product;
@@ -15,21 +16,21 @@ function formatPrice(price: number) {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, onAdd, onRemove, onChangeQuantity }) => {
     return (
-        <div className="bg-white rounded-xl shadow p-4 flex flex-col items-center justify-between h-full">
-            <img src={product.image} alt={product.name} className="w-20 h-20 object-cover rounded-full mb-3" />
-            <div className="font-semibold text-center mb-2">{product.name}</div>
-            <div className="text-lg font-bold text-green-700 mb-4">{formatPrice(product.price)}</div>
-            <div className="flex items-center gap-2 mb-3">
+        <div className={styles.card}>
+            <img src={product.image} alt={product.name} className={styles.image} />
+            <div className={styles.name}>{product.name}</div>
+            <div className={styles.price}>{formatPrice(product.price)}</div>
+            <div className={styles.quantityRow}>
                 <button
-                    className="w-8 h-8 rounded bg-gray-200 text-lg font-bold flex items-center justify-center hover:bg-gray-300 disabled:opacity-50"
+                    className={styles.quantityBtn}
                     onClick={() => onChangeQuantity(quantity - 1)}
                     disabled={quantity === 0}
                 >
                     -
                 </button>
-                <span className="w-8 text-center">{quantity}</span>
+                <span className={styles.quantity}>{quantity}</span>
                 <button
-                    className="w-8 h-8 rounded bg-gray-200 text-lg font-bold flex items-center justify-center hover:bg-gray-300"
+                    className={styles.quantityBtn}
                     onClick={() => onChangeQuantity(quantity + 1)}
                 >
                     +
@@ -37,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, onAdd, onR
             </div>
             {quantity === 0 && (
                 <button
-                    className="mt-auto bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-600 transition"
+                    className={styles.addBtn}
                     onClick={onAdd}
                 >
                     Add to cart
@@ -45,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, onAdd, onR
             )}
             {quantity > 0 && (
                 <button
-                    className="mt-auto text-red-500 text-sm hover:underline"
+                    className={styles.removeBtn}
                     onClick={onRemove}
                 >
                     Remove
