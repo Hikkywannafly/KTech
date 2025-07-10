@@ -92,10 +92,10 @@ export const deleteAllTasks = async (accessToken: string): Promise<void> => {
 };
 
 export const autoadd = async (accessToken: string): Promise<void> => {
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 50; i++) {
         const task: TaskCreateInput = {
-            title: `meryquan hansome guy1 ${i + 1}`,
-            description: `meryquan hansome guy1 ${i + 1}`,
+            title: `skibidi ${i + 1}`,
+            description: `mskibidi dom dom yubyu byub ${i + 1}`,
             priority: i % 3 === 0 ? "high" : i % 3 === 1 ? "medium" : "low",
             status: "to_do",
             start_date: new Date().toISOString(),
