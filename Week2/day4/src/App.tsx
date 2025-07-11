@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "@/components/Layout/Layout";
-import Home from "@/pages/Home/Page";
 import AllTasks from "@/pages/AllTasks/Page";
 import AddTask from "@/pages/AddTasks/Page";
 import NoMatch from "@/pages/NoMatch/Page";

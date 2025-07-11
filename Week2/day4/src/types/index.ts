@@ -1,7 +1,6 @@
 import {
     CheckSquareIcon,
     PlusIcon,
-    HomeIcon,
 } from "lucide-react"
 
 
