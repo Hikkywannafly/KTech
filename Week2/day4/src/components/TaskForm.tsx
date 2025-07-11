@@ -42,7 +42,7 @@ export const TaskForm = ({ onTaskAdded, accessToken, initialTask, isEdit }: Task
         setError("");
         try {
             if (isEdit && initialTask) {
-                // Chỉ gửi các trường thay đổi
+  
                 const updates: Partial<Task> = {};
                 if (title !== initialTask.title) updates.title = title;
                 if (description !== initialTask.description) updates.description = description;
