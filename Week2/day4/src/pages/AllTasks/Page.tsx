@@ -1,12 +1,9 @@
 import { FC, useEffect, useState } from "react";
-import { SearchIcon, FilterIcon, PlusIcon, CalendarIcon, StarIcon } from "lucide-react";
+import { SearchIcon, PlusIcon } from "lucide-react";
 import { Task } from "@/types";
 import {
     Dialog,
-    DialogClose,
     DialogContent,
-    DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
@@ -91,7 +88,7 @@ const AllTasks: FC = () => {
                     }}
                     className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
 
-                    xoa het
+                    xoa hang lot
                 </button>
                 <button
                     onClick={async () => {
@@ -106,16 +103,16 @@ const AllTasks: FC = () => {
                     }}
                     className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
 
-                    xoa het
+                    Them hang loa
                 </button>
 
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
-                    <PlusIcon className="w-4 h-4" />
-                    Thêm task
-                </button>
+
                 <Dialog>
                     <DialogTrigger asChild>
-
+                        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
+                            <PlusIcon className="w-4 h-4" />
+                            Thêm task
+                        </button>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-[425px] bg-white rounded-lg shadow-lg border border-gray-200">
                         <DialogHeader>

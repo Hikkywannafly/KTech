@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { createTask, updateTask } from "@/services/data";
+import { createTask } from "@/services/data";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
