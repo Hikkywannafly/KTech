@@ -9,7 +9,7 @@ interface TaskListProps {
 }
 
 export const TaskList: React.FC<TaskListProps> = ({ tasks, onDelete, onUpdate }) => {
-    // Helper functions (bạn có thể import từ file utils nếu muốn)
+
     const getPriorityColor = (priority: string) => {
         switch (priority) {
             case "high": return "bg-red-100 text-red-800";
