@@ -26,43 +26,18 @@ export interface Task {
 }
 
 export const menuItems = [
-    {
-        title: "Dashboard",
-        to: "/",
-        icon: HomeIcon,
-        description: "Tổng quan công việc"
-    },
+    // {
+    //     title: "Dashboard",
+    //     to: "/",
+    //     icon: HomeIcon,
+    //     description: "Tổng quan công việc"
+    // },
     {
         title: "Tất cả công việc",
         to: "/all-tasks",
         icon: CheckSquareIcon,
         description: "Xem tất cả công việc"
     },
-    // {
-    //     title: "Công việc hôm nay",
-    //     to: "/today",
-    //     icon: CalendarIcon,
-    //     description: "Công việc cần làm hôm nay"
-    // },
-    // {
-    //     title: "Quan trọng",
-    //     to: "/important",
-    //     icon: StarIcon,
-    //     description: "Công việc ưu tiên cao"
-    // },
-    // {
-    //     title: "Đã hoàn thành",
-    //     to: "/completed",
-    //     icon: CheckSquareIcon,
-    //     description: "Công việc đã hoàn thành"
-    // },
-
-    // {
-    //     title: "Cài đặt",
-    //     to: "/settings",
-    //     icon: SettingsIcon,
-    //     description: "Cài đặt ứng dụng"
-    // }
     {
         title: "Thêm mới",
         to: "/add-task",

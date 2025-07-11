@@ -11,9 +11,10 @@ interface TaskFormProps {
     accessToken: string;
     initialTask?: Task;
     isEdit?: boolean;
+    hideDialogClose?: boolean;
 }
 
-export const TaskForm = ({ onTaskAdded, accessToken, initialTask, isEdit }: TaskFormProps) => {
+export const TaskForm = ({ onTaskAdded, accessToken, initialTask, isEdit, hideDialogClose = false }: TaskFormProps & { hideDialogClose?: boolean }) => {
     const [title, setTitle] = useState(initialTask?.title || "");
     const [description, setDescription] = useState(initialTask?.description || "");
     const [priority, setPriority] = useState(initialTask?.priority || "medium");
@@ -42,7 +43,7 @@ export const TaskForm = ({ onTaskAdded, accessToken, initialTask, isEdit }: Task
         setError("");
         try {
             if (isEdit && initialTask) {
-  
+
                 const updates: Partial<Task> = {};
                 if (title !== initialTask.title) updates.title = title;
                 if (description !== initialTask.description) updates.description = description;
@@ -118,9 +119,16 @@ export const TaskForm = ({ onTaskAdded, accessToken, initialTask, isEdit }: Task
             </div>
             {error && <div className="text-red-500 text-sm">{error}</div>}
             <DialogFooter>
-                <DialogClose asChild>
-                    <Button variant="outline" type="button">Hủy</Button>
-                </DialogClose>
+                {!hideDialogClose ? (
+                    <DialogClose asChild>
+                        <Button variant="outline" type="button">Hủy</Button>
+                    </DialogClose>
+                ) : (
+                    <Button variant="outline" type="button" onClick={() => {
+                        // Nếu muốn quay lại trang trước, có thể dùng navigate(-1)
+                        window.history.back();
+                    }}>Hủy</Button>
+                )}
                 <Button type="submit" disabled={loading}>{loading ? (isEdit ? "Đang lưu..." : "Đang thêm...") : (isEdit ? "Lưu thay đổi" : "Lưu task")}</Button>
             </DialogFooter>
         </form>

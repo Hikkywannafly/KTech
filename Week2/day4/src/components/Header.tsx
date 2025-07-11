@@ -4,6 +4,7 @@ import { useDarkMode } from "@/hooks/useDarkMode"
 import { useMobileMenu } from "@/hooks/useMobileMenu";
 import { useRef, useState } from "react";
 import { menuItems } from "@/types";
+import { useTaskContext } from "@/context/TaskContext";
 
 import {
     ChevronLeftIcon,
@@ -29,9 +30,13 @@ export function Sidebar({ onCollapseChange }: SidebarProps) {
         toggleMenu
     } = useMobileMenu();
 
-    // State cho tooltip hold
     const [holdTooltip, setHoldTooltip] = useState<boolean>(false);
     const holdTimeout = useRef<NodeJS.Timeout | null>(null);
+
+    const { tasks } = useTaskContext();
+    const total = tasks.length;
+    const completed = tasks.filter(t => t.status === "done").length;
+    const remaining = total - completed;
 
     const handleToggle = () => {
         const newCollapsed = !isCollapsed;
@@ -256,27 +261,27 @@ export function Sidebar({ onCollapseChange }: SidebarProps) {
                                 <div className="space-y-2">
                                     <div className="flex justify-between text-sm">
                                         <span className="text-gray-600 dark:text-gray-400">Tổng công việc</span>
-                                        <span className="font-medium text-gray-900 dark:text-white">12</span>
+                                        <span className="font-medium text-gray-900 dark:text-white">{total}</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
                                         <span className="text-gray-600 dark:text-gray-400">Đã hoàn thành</span>
-                                        <span className="font-medium text-green-600">8</span>
+                                        <span className="font-medium text-green-600">{completed}</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
                                         <span className="text-gray-600 dark:text-gray-400">Còn lại</span>
-                                        <span className="font-medium text-orange-600">4</span>
+                                        <span className="font-medium text-orange-600">{remaining}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     )}
 
-                    {/* Collapsed stats - chỉ hiển thị icon */}
+
                     {isCollapsed && (
                         <div className="p-2 border-t border-gray-200 dark:border-gray-700 mt-auto flex-shrink-0">
                             <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-2 flex justify-center">
                                 <div className="text-center">
-                                    <div className="text-lg font-bold text-gray-900 dark:text-white">12</div>
+                                    <div className="text-lg font-bold text-gray-900 dark:text-white">{total}</div>
                                     <div className="text-xs text-gray-500 dark:text-gray-400">Tasks</div>
                                 </div>
                             </div>

@@ -96,24 +96,7 @@ const Login: React.FC = () => {
                         </div>
                     </div>
                     {error && <div className="text-red-500 text-sm text-center">{error}</div>}
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                            <input
-                                id="remember"
-                                type="checkbox"
-                                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                                disabled={loading}
-                            />
-                            <label htmlFor="remember" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
-                                Ghi nhớ đăng nhập
-                            </label>
-                        </div>
-                        <div className="text-sm">
-                            <a href="#" className="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400">
-                                Quên mật khẩu?
-                            </a>
-                        </div>
-                    </div>
+
                     <button
                         type="submit"
                         className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-60"
@@ -122,9 +105,7 @@ const Login: React.FC = () => {
                         {loading ? "Đang đăng nhập..." : "Đăng nhập"}
                     </button>
                 </form>
-                <div className="text-center text-sm text-gray-500 dark:text-gray-400">
-                    Chưa có tài khoản? <a href="#" className="text-blue-600 hover:underline dark:text-blue-400">Đăng ký</a>
-                </div>
+
             </div>
         </div>
     );
