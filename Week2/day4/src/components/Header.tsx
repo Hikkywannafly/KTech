@@ -6,15 +6,7 @@ import { useRef, useState } from "react";
 import { menuItems } from "@/types";
 
 import {
-    CheckSquareIcon,
-    SquareIcon,
-    PlusIcon,
-    CalendarIcon,
-    StarIcon,
-    HomeIcon,
-    SettingsIcon,
     ChevronLeftIcon,
-    ChevronRightIcon,
     MenuIcon,
     XIcon,
     SunIcon,
@@ -33,7 +25,6 @@ export function Sidebar({ onCollapseChange }: SidebarProps) {
     const { isDark, toggleTheme } = useDarkMode();
     const {
         isMobileMenuOpen,
-        openMenu,
         closeMenu,
         toggleMenu
     } = useMobileMenu();

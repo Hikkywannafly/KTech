@@ -1,17 +1,7 @@
 import {
     CheckSquareIcon,
-    SquareIcon,
     PlusIcon,
-    CalendarIcon,
-    StarIcon,
     HomeIcon,
-    SettingsIcon,
-    ChevronLeftIcon,
-    ChevronRightIcon,
-    MenuIcon,
-    XIcon,
-    SunIcon,
-    MoonIcon
 } from "lucide-react"
 
 

@@ -1,65 +1,65 @@
 import { FC } from "react";
-import { CheckSquareIcon, ClockIcon, StarIcon, TrendingUpIcon } from "lucide-react";
+
 
 const Dashboard: FC = () => {
-  const stats = [
-    {
-      title: "Tổng công việc",
-      value: "24",
-      change: "+12%",
-      icon: CheckSquareIcon,
-      color: "text-blue-600",
-      bgColor: "bg-blue-100"
-    },
-    {
-      title: "Hoàn thành hôm nay",
-      value: "8",
-      change: "+3",
-      icon: TrendingUpIcon,
-      color: "text-green-600",
-      bgColor: "bg-green-100"
-    },
-    {
-      title: "Công việc quan trọng",
-      value: "5",
-      change: "+2",
-      icon: StarIcon,
-      color: "text-yellow-600",
-      bgColor: "bg-yellow-100"
-    },
-    {
-      title: "Sắp đến hạn",
-      value: "3",
-      change: "-1",
-      icon: ClockIcon,
-      color: "text-red-600",
-      bgColor: "bg-red-100"
-    }
-  ];
+  // const stats = [
+  //   {
+  //     title: "Tổng công việc",
+  //     value: "24",
+  //     change: "+12%",
+  //     icon: CheckSquareIcon,
+  //     color: "text-blue-600",
+  //     bgColor: "bg-blue-100"
+  //   },
+  //   {
+  //     title: "Hoàn thành hôm nay",
+  //     value: "8",
+  //     change: "+3",
+  //     icon: TrendingUpIcon,
+  //     color: "text-green-600",
+  //     bgColor: "bg-green-100"
+  //   },
+  //   {
+  //     title: "Công việc quan trọng",
+  //     value: "5",
+  //     change: "+2",
+  //     icon: StarIcon,
+  //     color: "text-yellow-600",
+  //     bgColor: "bg-yellow-100"
+  //   },
+  //   {
+  //     title: "Sắp đến hạn",
+  //     value: "3",
+  //     change: "-1",
+  //     icon: ClockIcon,
+  //     color: "text-red-600",
+  //     bgColor: "bg-red-100"
+  //   }
+  // ];
 
-  const recentTasks = [
-    {
-      id: 1,
-      title: "Hoàn thành báo cáo tuần",
-      priority: "high",
-      dueDate: "2024-01-15",
-      completed: false
-    },
-    {
-      id: 2,
-      title: "Gọi khách hàng mới",
-      priority: "medium",
-      dueDate: "2024-01-14",
-      completed: true
-    },
-    {
-      id: 3,
-      title: "Cập nhật website",
-      priority: "low",
-      dueDate: "2024-01-16",
-      completed: false
-    }
-  ];
+  // const recentTasks = [
+  //   {
+  //     id: 1,
+  //     title: "Hoàn thành báo cáo tuần",
+  //     priority: "high",
+  //     dueDate: "2024-01-15",
+  //     completed: false
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Gọi khách hàng mới",
+  //     priority: "medium",
+  //     dueDate: "2024-01-14",
+  //     completed: true
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Cập nhật website",
+  //     priority: "low",
+  //     dueDate: "2024-01-16",
+  //     completed: false
+  //   }
+  // ];
 
   return (
     <div className="space-y-6">
