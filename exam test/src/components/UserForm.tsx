@@ -11,7 +11,7 @@ export interface FormData {
 }
 
 const schema = yup.object().shape({
-    name: yup.string().required('Name is required').min(2, 'Minimum 2 characters'),
+    name: yup.string().required('Name is required').min(2, 'Minimum 2 characters').matches(/^[A-Za-z\s]+$/, 'Name must only contain letters'),
     email: yup.string().required('Email is required').email('Invalid email'),
     age: yup
         .number()

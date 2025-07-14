@@ -12,7 +12,7 @@ function UserDetail() {
     }
 
     return (
-        <div className="max-w-md mx-auto bg-white rounded-2xl shadow p-8 mt-8">
+        <div className="max-w-md mx-auto bg-white border border-purple-200 rounded-2xl p-6 shadow-lg my-4 hover:scale-105 hover:shadow-2xl transition-all duration-200 flex flex-col gap-2">
             <h2 className="text-2xl font-bold mb-4">User Detail</h2>
             <div><span className="font-semibold">Name:</span> {user.name}</div>
             <div><span className="font-semibold">Email:</span> {user.email}</div>
